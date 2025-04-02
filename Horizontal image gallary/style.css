@@ -1,0 +1,99 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+
+        .gallery-wrap {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 80%;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px;
+            scrollbar-width: none;
+            white-space: nowrap;
+        }
+
+        .gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        #backbtn, #nextbtn {
+            width: 50px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #backbtn {
+            left: 10px;
+        }
+
+        #nextbtn {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-wrap {
+                flex-direction: row;
+                width: 100%;
+            }
+
+            #backbtn, #nextbtn {
+                width: 35px;
+            }
+
+            .gallery {
+                width: 100%;
+                max-width: 100%;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+            }
+
+            .gallery img {
+                height: 100px;
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery img {
+                height: 80px;
+                width: 80px;
+            }
+        }
